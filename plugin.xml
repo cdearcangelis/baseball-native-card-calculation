@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.power-6.baseball-native-card-calculation"
+        version="0.0.25">
+
+  <name>Native Card Calculation</name>
+
+  <description>
+    This is the plugin that runs the native card calculation on the phone to obscure how the calculation works.
+  </description>
+
+  <author>Christopher De Arcangelis</author>
+
+  <license>Private</license>
+
+  <keywords>power6</keywords>
+
+  <repo>https://github.com/power6/baseball-native-card-calculation</repo>
+
+  <issue>https://github.com/power6/baseball-native-card-calculation/issues</issue>
+
+  <engines>
+    <engine name="cordova" version=">=3.0.0"/>
+  </engines>
+
+  <js-module src="www/CardCalculation.js" name="CardCalculation">
+    <clobbers target="cardCalculation" />
+  </js-module>
+
+
+	<!-- android -->
+	<platform name="android">
+
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="CardCalculation">
+				<param name="android-package" value="com.power_6.baseball_native_card_calculation" />
+			</feature>
+		</config-file>
+
+		<source-file src="src/android/CardCalculation.java" target-dir="src/CardCalculation"/>
+	</platform>
+
+</plugin>
